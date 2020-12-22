@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class Elevator {
+    //floor we're om
+    private int floor;
+    //Button pressed by person
+    private int buttonPressed;
+    //Number of floors the building has
+    private int floorsB;
+
+
+    //Default Constructor
+    public Elevator(){
+        this(5, 5, 5);
+        System.out.println("Default constructor called");
+
+    }
+    //Constructor
+    public Elevator(int floor, int buttonPressed, int floorsB){
+        this.floor = floor;
+        this.buttonPressed = buttonPressed;
+        this.floorsB = floorsB;
+    }
+
+    //Setters and getters for our private variables
+    public int getFloor() {
+        return floor;
+    }
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+    public int getButtonPressed() {
+        return buttonPressed;
+    }
+    public void setButtonPressed(int buttonPressed) {
+        this.buttonPressed = buttonPressed;
+    }
+    public int getFloorsB() {
+        return floorsB;
+    }
+    public void setFloorsB(int floorsB) {
+        this.floorsB = floorsB;
+    }
+
+    //to string for these variables to be used in a static context
+
+
+
+
+    public void InsideElevator() {
+
+
+
+        //while loop boolean
+        boolean begin = true;
+
+        //initialize new variable
+        int currentFloor = 1;
+        buttonPressed = 1;
+        int newCurrentFloor = 1;
+
+
+        //Elevator operations in while loop
+        while (begin == true) {
+
+            //ASK USER WHICH FLOOR THEY WANT TO GO TO
+            System.out.println("You are on floor " + currentFloor +", Which floor would you like to go to? Press 0 to exit");
+
+
+            //build scanner
+            Scanner userResponse = new Scanner(System.in);
+            //read user input
+            buttonPressed = userResponse.nextInt();
+
+            if (newCurrentFloor != buttonPressed) {
+                    currentFloor = buttonPressed;
+                    System.out.println("You are on floor: \n" + currentFloor);
+
+                    //updating the floor since you're already on floor 1 of the building when you enter
+                    //This is not required again
+                    newCurrentFloor = currentFloor;
+
+                    //Exit
+                if(buttonPressed == 0){
+                    System.out.println("Now exiting the elevator");
+                    break;
+                }
+
+            }
+
+
+                currentFloor = newCurrentFloor;
+            }
+
+        }
+
+    }
+
+
